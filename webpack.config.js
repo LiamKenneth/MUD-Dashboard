@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
+  devtool: 'eval',
   context: __dirname, // `__dirname` is root of project and `src` is source
   entry: ['./src/index.js'],
   output: {
@@ -22,7 +23,7 @@ const config = {
     contentBase: "./dist",
     noInfo: true,
     compress: true,
-    port: 9000,
+    port: 1337,
     hot:true
   },
   plugins: [
