@@ -2,7 +2,6 @@ import React from 'react';
 
 class Stats extends React.Component {
 
-
     showStatDifference(stat, prevStat) {
 
         const diff = stat - prevStat;
@@ -10,11 +9,11 @@ class Stats extends React.Component {
         if (diff > 0) {
             return "(+" + diff + ")";
         }
-        else {
-             return "(" + diff + ")";
+        else if (diff < 0) {
+             return "(-" + diff + ")";
         }
 
-        return "(-" + diff + ")";
+        return "(" + diff + ")";
     }
 
     statHtml(stat, prevStat) {
