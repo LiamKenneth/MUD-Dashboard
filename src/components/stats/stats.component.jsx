@@ -17,22 +17,31 @@ class Stats extends React.Component {
         return "(-" + diff + ")";
     }
 
+    statHtml(stat, prevStat) {
+        
+         if (prevStat) {
+            return <span>{stat} {this.showStatDifference(stat, prevStat)} {prevStat}</span>;
+         }  
+         
+         return <span>{stat}</span>;
+    }
+
     formatStat(stat, prevStat = false) {
 
         if (prevStat === false) {
-            return <span>{stat}</span>
+           return this.statHtml(stat, prevStat);
         }
 
         if (stat > prevStat) {
-            return <span>{stat} {this.showStatDifference(stat, prevStat)} {prevStat}</span>
+            return this.statHtml(stat, prevStat); 
         }
 
         if (stat === prevStat) {
-            return <span>{stat} {this.showStatDifference(stat, prevStat)}  {prevStat}</span>
+            return this.statHtml(stat, prevStat); 
         }
 
         if (stat < prevStat) {
-            return <span>{stat} {this.showStatDifference(stat, prevStat)} {prevStat}</span>
+            return this.statHtml(stat, prevStat); 
         }
 
     }
