@@ -8,30 +8,28 @@ type statProps = {
 
 class Stats extends React.Component<any, any> {
 
-    showStatDifference(stat: number, prevStat: number) {
+    showStatDifference(stat: number, prevStat: number): string {
 
         const diff = stat - prevStat;
 
         if (diff > 0) {
             return "(+" + diff + ")";
-        }
-        else if (diff < 0) {
+        } else if (diff < 0) {
              return "(" + diff + ")";
         }
 
         return "(" + diff + ")";
     }
 
-    statHtml(stat: number | string, prevStat: number) {
-        
+    statHtml(stat: number | string, prevStat: number): any {
          if (prevStat) {
             return <span>{stat} {this.showStatDifference(stat as number, prevStat)} {prevStat}</span>;
-         }  
-         
+         }
+
          return <span>{stat}</span>;
     }
 
-    formatStat(stat: number | string, prevStat: number) {
+    formatStat(stat: number | string, prevStat: number): string {
 
         if (prevStat === undefined) {
            return this.statHtml(stat, prevStat);
@@ -51,10 +49,10 @@ class Stats extends React.Component<any, any> {
 
     }
 
-    render() {
+    render(): any {
         return (
          <div>{this.props.message}  {this.formatStat(this.props.stat, this.props.prevStat)}</div>
-        )
+        );
     }
 }
 export default Stats;
