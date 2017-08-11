@@ -1,0 +1,40 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+          "tsx": true
+        }
+      },
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+        "react/require-extension": "off",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "linebreak-style": 0,
+        "import/no-unresolved": "off",
+        "import/extensions": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+              "paths": ["src"]
+            }
+          },
+        "react": {
+          "createClass": "createReactClass", // Regex for Component Factory to use, default to "createReactClass"
+          "pragma": "React",  // Pragma to use, default to "React"
+          "version": "15.0" // React version, default to the latest React stable release
+        },
+        "propWrapperFunctions": [ "forbidExtraProps" ] // The names of any functions used to wrap the propTypes object, such as `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+      },
+      "env": {
+        "es6": true, 
+        "browser": true,
+        "node": true,
+        "commonjs": true
+      },
+    "extends": ["airbnb-base"],
+    "plugins": [
+        "react"
+      ]
+  }
