@@ -4,15 +4,17 @@
   "description": "Dashboard to show multi user dungeon data",
   "main": "index.js",
   "jest": {
+    "verbose": true,
     "moduleFileExtensions": [
       "ts",
       "tsx",
+      "jsx",
       "js"
     ],
-    "transform": {
-      "\\.(js)$": "babel-jest",
-      "\\.(ts|tsx)$": "babel-jest"
-    },
+   "transform": {},
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!react)/"
     ],
@@ -35,9 +37,11 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-dynamic-import-node": "^1.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.9.1",
     "eslint": "^4.4.1",

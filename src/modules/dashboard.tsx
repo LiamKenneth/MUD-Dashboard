@@ -9,14 +9,14 @@ type count = {
 
 type statProps = {
     newPlayers: {
-    month: count,
-    week: count,
-    day: count, 
-    averagePlayTime: string,
-    longestPlayTime: string,
-    shortestPlayTime: string,
+        month: count,
+        week: count,
+        day: count,
+        averagePlayTime: string,
+        longestPlayTime: string,
+        shortestPlayTime: string,
+    };
 };
-}
 
 class Dashboard extends React.Component<any, any> {
     constructor(props: any) {
@@ -40,41 +40,41 @@ class Dashboard extends React.Component<any, any> {
             averagePlayTime: "45 minutes",
             longestPlayTime: "2 hours",
             shortestPlayTime: "1 minute",
-        }
+        };
     }
 
 
     render() {
         return (
             <div>
-                <Stats 
-                message="new players this month:"
-                stat={this.state.newPlayers.month.now}
-                prevStat={this.state.newPlayers.month.before} />
+                <Stats
+                    message="new players this month:"
+                    stat={this.state.newPlayers.month.now}
+                    prevStat={this.state.newPlayers.month.before} />
 
-                <Stats 
-                message="new players this week:"
-                stat={this.state.newPlayers.week.now}
-                prevStat={this.state.newPlayers.week.before} />
+                <Stats
+                    message="new players this week:"
+                    stat={this.state.newPlayers.week.now}
+                    prevStat={this.state.newPlayers.week.before} />
 
-                <Stats 
-                message="new players today:"
-                stat={this.state.newPlayers.day.now}
-                prevStat={this.state.newPlayers.day.before}  />
+                <Stats
+                    message="new players today:"
+                    stat={this.state.newPlayers.day.now}
+                    prevStat={this.state.newPlayers.day.before} />
 
-                <Stats 
-                message="average playTime:"
-                stat={this.state.averagePlayTime}  />
+                <Stats
+                    message="average playTime:"
+                    stat={this.state.averagePlayTime} />
 
-                <Stats 
-                message="longest PlayTime:"
-                stat={this.state.longestPlayTime} />
+                <Stats
+                    message="longest PlayTime:"
+                    stat={this.state.longestPlayTime} />
 
-                <Stats 
-                message="shortest PlayTime:"
-                stat={this.state.shortestPlayTime} />
+                <Stats
+                    message="shortest PlayTime:"
+                    stat={this.state.shortestPlayTime} />
             </div>
-        )
+        );
 
     }
 
