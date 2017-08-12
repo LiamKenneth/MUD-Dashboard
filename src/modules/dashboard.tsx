@@ -58,7 +58,7 @@ class Dashboard extends React.Component<any, any> {
                 prevStat={this.state.newPlayers.week.before} />
 
                 <Stats 
-                message="new players this today:"
+                message="new players today:"
                 stat={this.state.newPlayers.day.now}
                 prevStat={this.state.newPlayers.day.before}  />
 
