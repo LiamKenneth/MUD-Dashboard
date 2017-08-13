@@ -11,19 +11,29 @@
       "jsx",
       "js"
     ],
-   "transform": {},
+    "transform": {
+    ".*\\.tsx$": "<rootDir>/node_modules/awesome-typescript-loader" 
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "haste": {
+      "providesModuleNodeModules": [
+        ".*"
+      ]
+    },
     "moduleDirectories": [
       "node_modules"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!react)/"
     ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   },
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "jest"
+    "test": "jest  --no-cache"
   },
   "keywords": [
     "MUD"
@@ -40,6 +50,7 @@
     "babel-plugin-dynamic-import-node": "^1.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-jest": "^20.0.3",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",

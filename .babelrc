@@ -1,9 +1,9 @@
 {
-  "presets":  ["es2015", "react"],
+  "presets":  [["es2015", { "modules": false }], "react"],
   "env": {
- "test": {
+  "test": {
       "presets":[
-        ["es2015", { "modules": false }],
+        "es2015",
          "stage-0",
         "react"],
       "plugins": [
@@ -11,5 +11,5 @@
         "dynamic-import-node"
       ]
     }
-}
+  }
 }
