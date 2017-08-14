@@ -1,16 +1,11 @@
-'use strict';
 
-const babel = require('babel-core');
-const jestPreset = require('babel-preset-jest');
+const tsc = require('typescript');
+const tsConfig = require('../../tsconfig.json');
 
 module.exports = {
-  process(src, filename) {
-    if (babel.util.canCompile(filename)) {
-      return babel.transform(src, {
-        filename,
-        presets: [jestPreset],
-        retainLines: true,
-      }).code;
+  process(src, path) {
+    if (path.endsWith('.ts') || path.endsWith('.tsx')) {
+      return tsc.transpile(src, tsConfig.compilerOptions, path, []);
     }
     return src;
   },

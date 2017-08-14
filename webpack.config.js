@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 const HOST = "127.0.0.1";
-const PORT = "9000";
+const PORT = "8080";
 
 const devServerUrl = "http://localhost:" + PORT + "/";
 
@@ -14,7 +14,7 @@ const config = {
   context: __dirname, // `__dirname` is root of project and `src` is source
   entry:
   [
-    './src/index.js',
+    './src/index.tsx',
     './src/ui/styles.scss'
   ],
   output: {
@@ -27,11 +27,9 @@ const config = {
   },
   module: {
     rules: [
+      { test: /\.ts?$/, loader: "awesome-typescript-loader" },
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-      { test: /\.js$/, exclude: /node_modules/, loader: ['babel-loader', 'eslint-loader'] },
-      { test: /\.jsx$/, exclude: /node_modules/, loader: ['babel-loader', 'eslint-loader'] },
-      {
-        test: /\.(sass|scss)$/, use: ExtractTextPlugin.extract({
+      { test: /\.(sass|scss)$/, use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
