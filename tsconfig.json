@@ -6,9 +6,14 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "jsx": "react",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "preserveConstEnums": true,
+        "lib": [
+            "es2016",
+            "dom"
+        ]
     },
     "include": [
-        "./src/**/*"
+        "./src/**/**"
     ]
 }
