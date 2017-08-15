@@ -27,6 +27,16 @@ const config = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      },
       { test: /\.ts?$/, loader: "awesome-typescript-loader" },
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
       { test: /\.(sass|scss)$/, use: ExtractTextPlugin.extract({
@@ -63,6 +73,13 @@ const config = {
   outputPath: path.resolve(__dirname, 'dist')
 })
   ],
+  externals: {
+    cheerio: 'window',
+    'react/addons': 'react',
+    'react/lib/ExecutionEnvironment': 'react',
+    'react/lib/ReactContext': 'react',
+    'react-addons-test-utils': 'react-dom', // <- added this
+  },
 };
 
 module.exports = config;

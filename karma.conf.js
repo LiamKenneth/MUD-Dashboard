@@ -69,7 +69,7 @@ module.exports = function(config) {
          * npm module to be npm installed and added to the "plugins" field.
          */
         preprocessors: {
-            "__test__/**/**/*.js": ["babel"] // Using karma-webpack npm module
+            "__test__/**/**/*.js": ["webpack"] // Using karma-webpack npm module
         },
 
         /*
@@ -77,7 +77,7 @@ module.exports = function(config) {
          * use the karma-mocha-reporter, you must npm install the module and
          * include it in the list of plugins.
          */
-        reporters: ["mocha"],
+        reporters: ["nyan"],
 
         /*
          * If true, Karma will start and capture all configured browsers, run

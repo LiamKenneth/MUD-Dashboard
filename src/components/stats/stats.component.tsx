@@ -30,28 +30,12 @@ class Stats extends React.Component<any, any> {
     }
 
     formatStat(stat: number | string, prevStat: number): string {
-
-        if (prevStat === undefined) {
-           return this.statHtml(stat, prevStat);
-        }
-
-        if (stat > prevStat) {
-            return this.statHtml(stat, prevStat);
-        }
-
-        if (stat === prevStat) {
-            return this.statHtml(stat, prevStat);
-        }
-
-        if (stat < prevStat) {
-            return this.statHtml(stat, prevStat);
-        }
-
+        return this.statHtml(stat, prevStat);
     }
 
     render(): any {
         return (
-         <div>{this.props.message}  {this.formatStat(this.props.stat, this.props.prevStat)}</div>
+         <div>{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</div>
         );
     }
 }
