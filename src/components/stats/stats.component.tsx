@@ -14,8 +14,8 @@ class Stats extends React.Component<any, any> {
 
         if (diff > 0) {
             return `(+${diff})`;
-        } 
-        
+        }
+
         return `(${diff})`;
     }
 
