@@ -84,7 +84,7 @@ module.exports = function(config) {
          * tests and then exit with an exit code of 0 or 1 depending on whether
          * all tests passed or any tests failed.
          */
-        singleRun: false,
+        singleRun: true,
 
         /*
          * This field is necessary because we are using webpack as a preprocessor.

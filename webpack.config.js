@@ -4,10 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
-const HOST = "127.0.0.1";
+const HOST = "localhost";
 const PORT = "8080";
 
-const devServerUrl = "http://localhost:" + PORT + "/";
 
 const config = {
   devtool: 'source-map',

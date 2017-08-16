@@ -1,22 +1,22 @@
 import * as React from 'react';
-import Stats from './../components/stats/stats.component';
 import '../ui/styles.scss';
+import Stats from './../components/stats/stats.component';
 
-type count = {
+interface Icount {
     now: number,
     before: number
-};
+}
 
-type statProps = {
+interface IstatProps {
     newPlayers: {
-        month: count,
-        week: count,
-        day: count,
+        month: Icount,
+        week: Icount,
+        day: Icount,
         averagePlayTime: string,
         longestPlayTime: string,
         shortestPlayTime: string,
     };
-};
+}
 
 class Dashboard extends React.Component<any, any> {
     constructor(props: any) {
@@ -26,53 +26,58 @@ class Dashboard extends React.Component<any, any> {
             newPlayers: {
                 month: {
                     now: 45,
-                    before: 30
+                    before: 30,
                 },
                 week: {
                     now: 22,
-                    before: 15
+                    before: 15,
                 },
                 day: {
                     now: 5,
-                    before: 12
-                }
+                    before: 12,
+                },
             },
-            averagePlayTime: "45 minutes",
-            longestPlayTime: "2 hours",
-            shortestPlayTime: "1 minute",
+            averagePlayTime: '45 minutes',
+            longestPlayTime: '2 hours',
+            shortestPlayTime: '1 minute',
         };
     }
 
-
-    render() {
+    public render() {
         return (
             <div>
                 <Stats
                     message="new players this month:"
                     stat={this.state.newPlayers.month.now}
-                    prevStat={this.state.newPlayers.month.before} />
+                    prevStat={this.state.newPlayers.month.before}
+                />
 
                 <Stats
                     message="new players this week:"
                     stat={this.state.newPlayers.week.now}
-                    prevStat={this.state.newPlayers.week.before} />
+                    prevStat={this.state.newPlayers.week.before}
+                />
 
                 <Stats
                     message="new players today:"
                     stat={this.state.newPlayers.day.now}
-                    prevStat={this.state.newPlayers.day.before} />
+                    prevStat={this.state.newPlayers.day.before}
+                />
 
                 <Stats
                     message="average playTime:"
-                    stat={this.state.averagePlayTime} />
+                    stat={this.state.averagePlayTime}
+                />
 
                 <Stats
                     message="longest PlayTime:"
-                    stat={this.state.longestPlayTime} />
+                    stat={this.state.longestPlayTime}
+                />
 
                 <Stats
                     message="shortest PlayTime:"
-                    stat={this.state.shortestPlayTime} />
+                    stat={this.state.shortestPlayTime}
+                />
             </div>
         );
 
