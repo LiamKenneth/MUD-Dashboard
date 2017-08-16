@@ -33,7 +33,7 @@ class Stats extends React.Component<any, any> {
 
     public render(): any {
         return (
-         <div>{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</div>
+         <div className="col">{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</div>
         );
     }
 }

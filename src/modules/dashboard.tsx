@@ -45,7 +45,7 @@ class Dashboard extends React.Component<any, any> {
 
     public render() {
         return (
-            <div>
+            <div className="row">
                 <Stats
                     message="new players this month:"
                     stat={this.state.newPlayers.month.now}
