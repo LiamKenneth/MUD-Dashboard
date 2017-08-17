@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 interface IstatProps {
     message: string;
@@ -33,7 +34,7 @@ class Stats extends React.Component<any, any> {
 
     public render(): any {
         return (
-         <div className="col">{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</div>
+         <Col>{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</Col>
         );
     }
 }

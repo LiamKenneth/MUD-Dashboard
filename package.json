@@ -69,8 +69,13 @@
     "@types/react": "^16.0.2",
     "@types/react-addons-test-utils": "^0.14.19",
     "@types/react-dom": "^15.5.2",
+    "@types/reactstrap": "^4.3.9",
     "@types/sinon": "^2.3.3",
+    "bootstrap": "^4.0.0-beta",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "reactstrap": "^4.8.0"
   }
 }
