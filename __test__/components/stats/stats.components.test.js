@@ -11,7 +11,7 @@ describe("Stat component", () => {
             stat="45"
             prevStat="30" />);
 
-        expect(wrapper.html()).to.equal('<div>new players this month:<span>45 (+15) 30</span></div>');
+        expect(wrapper.html()).to.equal('<div class="col">new players this month:<span>45 (+15) 30</span></div>');
     });
 
     it('should display text, current value, before value and show a NEGATIVE difference', function () {
@@ -20,7 +20,7 @@ describe("Stat component", () => {
             stat="23"
             prevStat="100" />);
 
-        expect(wrapper.html()).to.equal('<div>new players this month:<span>23 (-77) 100</span></div>');
+        expect(wrapper.html()).to.equal('<div class="col">new players this month:<span>23 (-77) 100</span></div>');
     });
 
     it('should display text, current value, before value and show a NO difference', function () {
@@ -29,7 +29,7 @@ describe("Stat component", () => {
             stat="23"
             prevStat="23" />);
 
-        expect(wrapper.html()).to.equal('<div>new players this month:<span>23 (0) 23</span></div>');
+        expect(wrapper.html()).to.equal('<div class="col">new players this month:<span>23 (0) 23</span></div>');
     });
     
     it('should display text and a value', function () {
@@ -38,7 +38,7 @@ describe("Stat component", () => {
             stat="23"
             />);
 
-        expect(wrapper.html()).to.equal('<div>new players this month:<span>23</span></div>');
+        expect(wrapper.html()).to.equal('<div class="col">new players this month:<span>23</span></div>');
     });
 
     it('should return no difference', function () {
