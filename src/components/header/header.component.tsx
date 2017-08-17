@@ -7,22 +7,22 @@ class Header extends React.Component<any, any> {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   render() {
     return (
       <div>
-         <Navbar className="navbar-expand-sm" color="faded" light toggleable>
+         <Navbar className="navbar-expand-sm" color="faded" light={true} toggleable={true}>
          <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler right onClick={this.toggle} />        
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+          <NavbarToggler right={true} onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar={true}>
+            <Nav className="ml-auto" navbar={true}>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
