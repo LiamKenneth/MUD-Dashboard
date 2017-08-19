@@ -1,0 +1,22 @@
+.navbar {
+    padding: 1.21rem 1rem;
+    background: $secondaryColor;
+
+    .navbar-brand {
+        color: $primaryColor;
+        margin-left:1rem;
+
+
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+
+   .navbar-nav .nav-item a {
+        color: $primaryColor;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+
+}

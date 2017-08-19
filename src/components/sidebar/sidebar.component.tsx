@@ -21,7 +21,7 @@ class Sidebar extends React.Component<any, any> {
 
             <div className="sidebar-header">
                 <h3>ArchaicQuest</h3>
-                <strong>AQ Admin</strong>
+                <strong>AQ</strong>
             </div>
             <ul className="list-unstyled components">
                 <li className="active">

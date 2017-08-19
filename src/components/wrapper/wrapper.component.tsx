@@ -64,33 +64,39 @@ class Wrapper extends React.Component<any, any> {
                         message="new players this month:"
                         stat={this.state.newPlayers.month.now}
                         prevStat={this.state.newPlayers.month.before}
+                        statClass="newMonth"
                     />
 
                     <Stats
                         message="new players this week:"
                         stat={this.state.newPlayers.week.now}
                         prevStat={this.state.newPlayers.week.before}
+                        statClass="newWeek"
                     />
 
                     <Stats
                         message="new players today:"
                         stat={this.state.newPlayers.day.now}
                         prevStat={this.state.newPlayers.day.before}
+                        statClass="newToday"
                     />
 
                     <Stats
                         message="average playTime:"
                         stat={this.state.averagePlayTime}
+                        statClass="averagePlayTime"
                     />
 
                     <Stats
                         message="longest PlayTime:"
                         stat={this.state.longestPlayTime}
+                        statClass="longestPlayTime"
                     />
 
                     <Stats
                         message="shortest PlayTime:"
                         stat={this.state.shortestPlayTime}
+                        statClass="shortestPlayTime"
                     />
                 </Row>
             </div>
