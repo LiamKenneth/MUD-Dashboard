@@ -1,7 +1,17 @@
 @import "_variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../components/sidebar/sidebar.scss";
+
 
 //https://colorlib.com/polygon/gentelella/index.html
 body {
     background-color: $body;
+}
+ 
+.container-fluid {padding:0;}
+
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
 }

@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7df0c535e2b81c6c7675"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "08806a352f9e962dfe8c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -27553,6 +27553,7 @@ __webpack_require__(86);
 var reactstrap_1 = __webpack_require__(53);
 var stats_component_1 = __webpack_require__(209);
 var header_component_1 = __webpack_require__(210);
+var sidebar_component_1 = __webpack_require__(211);
 var Dashboard = (function (_super) {
     __extends(Dashboard, _super);
     function Dashboard(props) {
@@ -27580,6 +27581,7 @@ var Dashboard = (function (_super) {
     }
     Dashboard.prototype.render = function () {
         return (React.createElement("div", null,
+            React.createElement(sidebar_component_1.default, null),
             React.createElement(header_component_1.default, null),
             React.createElement(reactstrap_1.Row, null,
                 React.createElement(stats_component_1.default, { message: "new players this month:", stat: this.state.newPlayers.month.now, prevStat: this.state.newPlayers.month.before }),
@@ -30693,30 +30695,100 @@ var Header = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.toggle = _this.toggle.bind(_this);
         _this.state = {
-            isOpen: false
+            isOpen: false,
         };
         return _this;
     }
     Header.prototype.toggle = function () {
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpen: !this.state.isOpen,
         });
     };
     Header.prototype.render = function () {
-        return (React.createElement("div", null,
-            React.createElement(reactstrap_1.Navbar, { color: "faded", light: true, toggleable: true },
-                React.createElement(reactstrap_1.NavbarToggler, { right: true, onClick: this.toggle }),
-                React.createElement(reactstrap_1.NavbarBrand, { href: "/" }, "reactstrap"),
-                React.createElement(reactstrap_1.Collapse, { isOpen: this.state.isOpen, navbar: true },
-                    React.createElement(reactstrap_1.Nav, { className: "ml-auto", navbar: true },
-                        React.createElement(reactstrap_1.NavItem, null,
-                            React.createElement(reactstrap_1.NavLink, { href: "/components/" }, "Components")),
-                        React.createElement(reactstrap_1.NavItem, null,
-                            React.createElement(reactstrap_1.NavLink, { href: "https://github.com/reactstrap/reactstrap" }, "Github")))))));
+        return (React.createElement(reactstrap_1.Navbar, { className: "navbar-expand-sm", color: "faded", light: true, toggleable: true },
+            React.createElement(reactstrap_1.NavbarBrand, { href: "/" }, "reactstrap"),
+            React.createElement(reactstrap_1.NavbarToggler, { right: true, onClick: this.toggle }),
+            React.createElement(reactstrap_1.Collapse, { isOpen: this.state.isOpen, navbar: true },
+                React.createElement(reactstrap_1.Nav, { className: "ml-auto", navbar: true },
+                    React.createElement(reactstrap_1.NavItem, null,
+                        React.createElement(reactstrap_1.NavLink, { href: "/components/" }, "Components")),
+                    React.createElement(reactstrap_1.NavItem, null,
+                        React.createElement(reactstrap_1.NavLink, { href: "https://github.com/reactstrap/reactstrap" }, "Github"))))));
     };
     return Header;
 }(React.Component));
 exports.default = Header;
+
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(10);
+var Sidebar = (function (_super) {
+    __extends(Sidebar, _super);
+    function Sidebar(props) {
+        var _this = _super.call(this, props) || this;
+        _this.toggle = _this.toggle.bind(_this);
+        _this.state = {
+            isOpen: false,
+        };
+        return _this;
+    }
+    Sidebar.prototype.toggle = function () {
+        this.setState({
+            isOpen: !this.state.isOpen,
+        });
+    };
+    Sidebar.prototype.render = function () {
+        return (React.createElement("nav", { id: "sidebar" },
+            React.createElement("div", { className: "sidebar-header" },
+                React.createElement("h3", null, "Collapsible Sidebar"),
+                React.createElement("strong", null, "BS")),
+            React.createElement("ul", { className: "list-unstyled components" },
+                React.createElement("li", { className: "active" },
+                    React.createElement("a", { href: "#homeSubmenu", "data-toggle": "collapse", "aria-expanded": "false" },
+                        React.createElement("i", { className: "glyphicon glyphicon-home" }),
+                        "Home")),
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" },
+                        React.createElement("i", { className: "glyphicon glyphicon-briefcase" }),
+                        "About"),
+                    React.createElement("a", { href: "#pageSubmenu", "data-toggle": "collapse", "aria-expanded": "false" },
+                        React.createElement("i", { className: "glyphicon glyphicon-duplicate" }),
+                        "Pages"),
+                    React.createElement("ul", { className: "collapse list-unstyled", id: "pageSubmenu" },
+                        React.createElement("li", null,
+                            React.createElement("a", { href: "#" }, "Page 1")),
+                        React.createElement("li", null,
+                            React.createElement("a", { href: "#" }, "Page 2")),
+                        React.createElement("li", null,
+                            React.createElement("a", { href: "#" }, "Page 3")))),
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" },
+                        React.createElement("i", { className: "glyphicon glyphicon-link" }),
+                        "Portfolio")),
+                React.createElement("li", null,
+                    React.createElement("a", { href: "#" },
+                        React.createElement("i", { className: "glyphicon glyphicon-send" }),
+                        "Contact")))));
+    };
+    return Sidebar;
+}(React.Component));
+exports.default = Sidebar;
 
 
 /***/ })

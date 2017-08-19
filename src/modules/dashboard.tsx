@@ -1,8 +1,7 @@
 import * as React from 'react';
 import '../ui/styles.scss';
 import { Container, Row, Col } from 'reactstrap';
-import Stats from './../components/stats/stats.component';
-import Header from './../components/header/header.component';
+import Wrapper from './../components/wrapper/wrapper.component';
 
 interface Icount {
     now: number,
@@ -48,41 +47,7 @@ class Dashboard extends React.Component<any, any> {
     public render() {
         return (
             <div>
-                <Header />
-            <Row>
-                <Stats
-                    message="new players this month:"
-                    stat={this.state.newPlayers.month.now}
-                    prevStat={this.state.newPlayers.month.before}
-                />
-
-                <Stats
-                    message="new players this week:"
-                    stat={this.state.newPlayers.week.now}
-                    prevStat={this.state.newPlayers.week.before}
-                />
-
-                <Stats
-                    message="new players today:"
-                    stat={this.state.newPlayers.day.now}
-                    prevStat={this.state.newPlayers.day.before}
-                />
-
-                <Stats
-                    message="average playTime:"
-                    stat={this.state.averagePlayTime}
-                />
-
-                <Stats
-                    message="longest PlayTime:"
-                    stat={this.state.longestPlayTime}
-                />
-
-                <Stats
-                    message="shortest PlayTime:"
-                    stat={this.state.shortestPlayTime}
-                />
-            </Row>
+                  <Wrapper />
             </div>
         );
 

@@ -17,9 +17,11 @@ class Header extends React.Component<any, any> {
   }
   render() {
     return (
-      <div>
          <Navbar className="navbar-expand-sm" color="faded" light={true} toggleable={true}>
-         <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <button type="button" className="sidebar-toggler navbar-toggler-left" onClick={this.props.handleClick}>
+          <span className="navbar-toggler-icon"/>
+        </button>
+         <NavbarBrand href="/">Dashboard</NavbarBrand>
           <NavbarToggler right={true} onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar={true}>
             <Nav className="ml-auto" navbar={true}>
@@ -32,7 +34,6 @@ class Header extends React.Component<any, any> {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
     );
   }
 }
