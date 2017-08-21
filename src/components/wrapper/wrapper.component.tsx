@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
+import DataList from './../data-list/data-list.component';
 
 interface Icount {
     now: number,
@@ -55,6 +56,7 @@ class Wrapper extends React.Component<any, any> {
     }
 
     public render(): any {
+
         return (
             <div className="wrapper">
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
@@ -98,6 +100,11 @@ class Wrapper extends React.Component<any, any> {
                         stat={this.state.shortestPlayTime}
                         statClass="shortestPlayTime"
                     />
+                </Row>
+                <Row>
+                    <Col>
+                    <DataList players={[]} />
+                    </Col>
                 </Row>
             </div>
         );
