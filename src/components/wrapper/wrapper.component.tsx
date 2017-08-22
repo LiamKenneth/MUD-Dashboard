@@ -3,8 +3,8 @@ import { Container, Row, Col } from 'reactstrap';
 import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
-import DataList from './../data-list/data-list.component';
-
+import PlayerList from './../data-list/player-list.component';
+import WhoList from './../data-list/who-list.component';
 interface Icount {
     now: number,
     before: number
@@ -102,9 +102,15 @@ class Wrapper extends React.Component<any, any> {
                     />
                 </Row>
                 <Row>
-                    <Col>
-                    <DataList players={[]} />
+                    <Col sm="6">
+                    <PlayerList players={[]} />
                     </Col>
+                    <Col sm="6">
+                    <WhoList players={[]} />
+                    </Col>
+                </Row>
+                <Row>
+ 
                 </Row>
             </div>
         );

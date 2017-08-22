@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactTable from 'react-table'
 import { Col, Row, Table } from 'reactstrap';
 
 interface IPlayer {
@@ -13,7 +14,7 @@ interface IPlayerListProps {
   players: IPlayer[]
 }
 
-class DataList extends React.Component<IPlayerListProps, any> {
+class PlayerList extends React.Component<IPlayerListProps, any> {
   constructor(props: any) {
     super(props);
 
@@ -112,40 +113,48 @@ class DataList extends React.Component<IPlayerListProps, any> {
     };
   }
 
-  returnTableRow(player: IPlayer, index: number): JSX.Element {
-    return (
-      <tr>
-        <td>{player.name}</td>
-        <td>{player.race}</td>
-        <td>{player.class}</td>
-        <td>{player.level}</td>
-        <td>{player.lastplayed}</td>
-      </tr>
-    );
-  }
-
+ 
   render() {
     return (
-      <div>
-        <h3>Payers</h3>
-      <Table className="table table-striped">
-      <thead>
-
-        <tr>
-          <td>Name</td>
-          <td>Race</td>
-          <td>Class</td>
-          <td>Level</td>
-          <td>Last Played</td>
-        </tr>
-        </thead>
-        <tbody>
-        {this.state.players.map((player: IPlayer, i: number) => { return this.returnTableRow(player, i); })}
-        </tbody>
-      </Table>
-      </div>
-    );
+      <ReactTable
+      data={this.state.players}
+      columns={[
+        {
+          Header: "Players",
+          columns: [
+            {
+              Header: "Name",
+              accessor: "name"
+            },
+            {
+              Header: "Race",
+              accessor: "race"
+            },
+            {
+              Header: "Class",
+              accessor: "class"
+            },
+            {
+              Header: "Level",
+              accessor: "level"
+            },
+            {
+              Header: "Last Played",
+              accessor: "lastplayed"
+            },
+          ]
+        },
+        
+        
+      ]}
+      style={{
+            height: "400px" 
+          }}
+      defaultPageSize={10}
+      className="-striped -highlight"
+    /> 
+    )
   }
 }
 
-export default DataList;
+export default  PlayerList;
