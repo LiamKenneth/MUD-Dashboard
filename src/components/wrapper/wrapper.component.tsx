@@ -5,6 +5,7 @@ import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
 import PlayerList from './../data-list/player-list.component';
 import WhoList from './../data-list/who-list.component';
+import ErrorList from './../data-list/error-list.component';
 interface Icount {
     now: number,
     before: number
@@ -110,7 +111,9 @@ class Wrapper extends React.Component<any, any> {
                     </Col>
                 </Row>
                 <Row>
- 
+                <Col sm="6">
+                    <ErrorList errors={[]} />
+                    </Col>
                 </Row>
             </div>
         );
