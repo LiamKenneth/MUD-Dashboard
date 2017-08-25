@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import Signups from './../Charts/signups-component';
 import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
@@ -61,7 +62,7 @@ class Wrapper extends React.Component<any, any> {
         return (
             <div className="wrapper">
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
-                <Header  handleClick={this.handleClick}  />
+                <Header handleClick={this.handleClick} />
                 <Row>
                     <Stats
                         message="new players this month:"
@@ -104,15 +105,15 @@ class Wrapper extends React.Component<any, any> {
                 </Row>
                 <Row>
                     <Col sm="6">
-                    <PlayerList players={[]} />
+                   <Signups />
                     </Col>
                     <Col sm="6">
-                    <WhoList players={[]} />
+                        <WhoList players={[]} />
                     </Col>
                 </Row>
                 <Row>
-                <Col sm="6">
-                    <ErrorList errors={[]} />
+                    <Col sm="6">
+                        <ErrorList errors={[]} />
                     </Col>
                 </Row>
             </div>

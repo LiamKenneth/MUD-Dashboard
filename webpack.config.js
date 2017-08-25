@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 const HOST = "localhost";
-const PORT = "9890";
+const PORT = "8181";
 
 
 const config = {
