@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Card, CardBlock, CardHeader } from 'reactstrap';
 import Signups from './../Charts/signups-component';
 import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
@@ -104,8 +104,12 @@ class Wrapper extends React.Component<any, any> {
                     />
                 </Row>
                 <Row>
+              
                     <Col sm="6">
-                   <Signups />
+              
+                     
+                       <Signups />
+               
                     </Col>
                     <Col sm="6">
                         <WhoList players={[]} />
