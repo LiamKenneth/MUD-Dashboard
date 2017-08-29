@@ -9,7 +9,15 @@
 //https://colorlib.com/polygon/gentelella/index.html
 body {
     background-color: $body;
+    margin:0;
 }
+
+.container-fluid{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.top-buffer { margin-top:30px; }
  
 .container-fluid {padding:0;}
 
