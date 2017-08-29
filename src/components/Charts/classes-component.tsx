@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ResponsiveContainer, PieChart, Pie, Legend} from 'recharts';
+import {ResponsiveContainer, PieChart, Pie, Legend, Cell} from 'recharts';
 
 
 class Classes extends React.Component<any, any> {
@@ -32,12 +32,17 @@ class Classes extends React.Component<any, any> {
   
 
       render () {
- 
+        const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
         return (
 
         <ResponsiveContainer>
         <PieChart>
-          <Pie data={this.state.classes} fill="#8884d8"  label />
+        <Legend verticalAlign="top" />
+          <Pie data={this.state.classes} fill="#8884d8"  label>
+          {
+            this.state.classes.map((entry: any, index: any) => <Cell fill={COLORS[index % COLORS.length]}/>)
+          }
+          </Pie>
         </PieChart>
        </ResponsiveContainer>
       );

@@ -105,7 +105,12 @@ class Wrapper extends React.Component<any, any> {
                        <Signups />
                
                     </Col>
-                    <Col sm="6">
+                    <Col sm="3">
+              
+                         <Classes />
+                       
+                    </Col>
+                    <Col sm="3">
               
                          <Classes />
                        
