@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactTable from 'react-table'
+import ReactTable from 'react-table';
 import { Col, Row, Table } from 'reactstrap';
 
 interface IPlayerWho {
@@ -22,7 +22,7 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
     super(props);
 
     this.state = {
-        players: [
+      players: [
         {
           id: 1,
           name: 'malleus',
@@ -82,9 +82,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           location: "Path through Anker",
           idle: "12 minutes",
           playingTime: "1 hour"
-    
+
         },
-    
+
         {
           id: 7,
           name: 'Shawn',
@@ -94,9 +94,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           location: "Lost in the woods",
           idle: "2 minutes",
           playingTime: "1 minute"
-    
+
         },
-    
+
         {
           id: 8,
           name: 'Waaagh',
@@ -106,9 +106,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           location: "Lost in the woods",
           idle: "false",
           playingTime: "4 hours"
-    
+
         },
-    
+
         {
           id: 9,
           name: 'Alleluia',
@@ -118,9 +118,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           location: "Mage Guild Entrance",
           idle: "false",
           playingTime: "6 hours"
-    
+
         },
-    
+
         {
           id: 10,
           name: 'Treluver',
@@ -130,60 +130,60 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           location: "Bar",
           idle: "false",
           playingTime: "28 minutes"
-    
+
         },
       ]
     };
   }
 
- 
+
   render() {
     return (
       <ReactTable
-      data={this.state.players}
-      columns={[
-        {
-          Header: "Who's Playing",
-          columns: [
-            {
-              Header: "Name",
-              accessor: "name"
-            },
-            {
-              Header: "Race",
-              accessor: "race"
-            },
-            {
-              Header: "Class",
-              accessor: "class"
-            },
-            {
-              Header: "Level",
-              accessor: "level"
-            },
-            {
-              Header: "Location",
-              accessor: "location"
-            },
-            {
-              Header: "Idle",
-              accessor: "idle"
-            },
-            {
-              Header: "Playing Time",
-              accessor: "playingTime"
-            },
-          ]
-        },
-        
-        
-      ]}
-      style={{
-            height: "400px" 
-          }}
-      defaultPageSize={10}
-      className="-striped -highlight"
-    /> 
+        data={this.state.players}
+        columns={[
+          {
+            Header: "Who's Playing",
+            columns: [
+              {
+                Header: "Name",
+                accessor: "name"
+              },
+              {
+                Header: "Race",
+                accessor: "race"
+              },
+              {
+                Header: "Class",
+                accessor: "class"
+              },
+              {
+                Header: "Level",
+                accessor: "level"
+              },
+              {
+                Header: "Location",
+                accessor: "location"
+              },
+              {
+                Header: "Idle",
+                accessor: "idle"
+              },
+              {
+                Header: "Playing Time",
+                accessor: "playingTime"
+              },
+            ]
+          },
+
+
+        ]}
+        style={{
+          height: "400px"
+        }}
+        defaultPageSize={10}
+        className="-striped -highlight"
+      />
     )
   }
 }

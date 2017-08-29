@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container, Row, Col, Card, CardBlock, CardHeader } from 'reactstrap';
 import Signups from './../Charts/signups-component';
+import Classes from './../Charts/classes-component';
 import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
@@ -64,12 +65,6 @@ class Wrapper extends React.Component<any, any> {
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
                 <Header handleClick={this.handleClick} />
                 <Row>
-                    <Stats
-                        message="new players this month:"
-                        stat={this.state.newPlayers.month.now}
-                        prevStat={this.state.newPlayers.month.before}
-                        statClass="newMonth"
-                    />
 
                     <Stats
                         message="new players this week:"
@@ -106,16 +101,20 @@ class Wrapper extends React.Component<any, any> {
                 <Row>
               
                     <Col sm="6">
-              
-                     
+                         
                        <Signups />
                
                     </Col>
                     <Col sm="6">
-                        <WhoList players={[]} />
+              
+                         <Classes />
+                       
                     </Col>
                 </Row>
                 <Row>
+                    <Col sm="6">
+                    <WhoList players={[]} />
+                    </Col>
                     <Col sm="6">
                         <ErrorList errors={[]} />
                     </Col>

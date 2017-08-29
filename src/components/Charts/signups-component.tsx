@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
+
 class Signups extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -65,7 +66,7 @@ class Signups extends React.Component<any, any> {
         <LineChart
             data={this.state.signups}
             margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-            <Line name="New character sign ups" type="monotone" dataKey="Count" stroke="#8884d8" height="60" />
+            <Line name="New character sign ups" type="monotone" dataKey="Count" stroke="#8884d8" height={60} />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="Month" />
             <YAxis />
