@@ -9,7 +9,12 @@
   -moz-box-flex:  0;
   -ms-box-flex:  0;
   box-flex:  0;  
-  transition: all 0.3s;
+ 
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
   }
 
 #sidebar.active {
@@ -22,6 +27,11 @@
     -moz-box-flex:  0;
     -ms-box-flex:  0;
     box-flex:  0;  
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {

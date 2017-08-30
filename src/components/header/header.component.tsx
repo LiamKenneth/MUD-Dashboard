@@ -22,17 +22,7 @@ class Header extends React.Component<any, any> {
           <span className="navbar-toggler-icon"/>
         </button>
          <NavbarBrand href="/">Dashboard</NavbarBrand>
-          <NavbarToggler right={true} onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar={true}>
-            <Nav className="ml-auto" navbar={true}>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+
         </Navbar>
     );
   }

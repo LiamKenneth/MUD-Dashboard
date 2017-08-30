@@ -30,33 +30,7 @@ class Sidebar extends React.Component<any, any> {
                         Home
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i className="glyphicon glyphicon-briefcase"/>
-                        About
-                    </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i className="glyphicon glyphicon-duplicate"/>
-                        Pages
-                    </a>
-                    <ul className="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="glyphicon glyphicon-link"/>
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="glyphicon glyphicon-send"/>
-                        Contact
-                    </a>
-                </li>
+
             </ul>
         </nav>
     );

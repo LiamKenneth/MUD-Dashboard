@@ -65,9 +65,9 @@ class Wrapper extends React.Component<any, any> {
 
         return (
             <div className="wrapper">
-         
+
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
-          
+
                 <div className="main">
                 <Header handleClick={this.handleClick} />
                 <Row>
@@ -105,21 +105,21 @@ class Wrapper extends React.Component<any, any> {
                     />
                 </Row>
                 <Row className="top-buffer">
-              
+
                     <Col sm="6">
-                         
+
                        <Signups />
-               
+
                     </Col>
                     <Col sm="3">
-              
+
                          <Classes />
-                       
+
                     </Col>
                     <Col sm="3">
-              
+
                          <Gender />
-                       
+
                     </Col>
                 </Row>
                 <Row className="top-buffer">

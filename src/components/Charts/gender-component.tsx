@@ -26,7 +26,7 @@ class Gender extends React.Component<any, any> {
       <ResponsiveContainer>
         <PieChart>
           <Legend verticalAlign="top" />
-          <Pie data={this.state.gender} fill="#8884d8" label>
+          <Pie data={this.state.gender} fill="#8884d8" label={true}>
             {this.state.gender.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
         </PieChart>

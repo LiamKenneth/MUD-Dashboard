@@ -29,9 +29,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 1,
           class: 'mage',
           race: 'Human',
-          location: "Market Square",
-          idle: "5 minutes",
-          playingTime: "3 hours",
+          location: 'Market Square',
+          idle: '5 minutes',
+          playingTime: '3 hours',
         },
         {
           id: 2,
@@ -39,9 +39,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 25,
           class: 'mage',
           race: 'Human',
-          location: "Market Square",
-          idle: "15 minutes",
-          playingTime: "2 hours"
+          location: 'Market Square',
+          idle: '15 minutes',
+          playingTime: '2 hours',
         },
         {
           id: 3,
@@ -49,9 +49,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'cleric',
           race: 'Human',
-          location: "A house",
-          idle: "false",
-          playingTime: "10 minutes"
+          location: 'A house',
+          idle: 'false',
+          playingTime: '10 minutes',
         },
         {
           id: 4,
@@ -59,9 +59,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           race: 'Human',
           class: 'Warrior',
-          location: "Anker Manor",
-          idle: "false",
-          playingTime: "2.5 hours"
+          location: 'Anker Manor',
+          idle: 'false',
+          playingTime: '2.5 hours',
         },
         {
           id: 5,
@@ -69,9 +69,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Mage',
           race: 'Elf',
-          location: "Hedge Maze",
-          idle: "false",
-          playingTime: "32 minutes"
+          location: 'Hedge Maze',
+          idle: 'false',
+          playingTime: '32 minutes',
         },
         {
           id: 6,
@@ -79,9 +79,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Mage',
           race: 'Human',
-          location: "Path through Anker",
-          idle: "12 minutes",
-          playingTime: "1 hour"
+          location: 'Path through Anker',
+          idle: '12 minutes',
+          playingTime: '1 hour',
 
         },
 
@@ -91,9 +91,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Skald',
           race: 'Human',
-          location: "Lost in the woods",
-          idle: "2 minutes",
-          playingTime: "1 minute"
+          location: 'Lost in the woods',
+          idle: '2 minutes',
+          playingTime: '1 minute',
 
         },
 
@@ -103,9 +103,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Dragonslayer',
           race: 'Bugbear',
-          location: "Lost in the woods",
-          idle: "false",
-          playingTime: "4 hours"
+          location: 'Lost in the woods',
+          idle: 'false',
+          playingTime: '4 hours',
 
         },
 
@@ -115,9 +115,9 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Druid',
           race: 'Areial',
-          location: "Mage Guild Entrance",
-          idle: "false",
-          playingTime: "6 hours"
+          location: 'Mage Guild Entrance',
+          idle: 'false',
+          playingTime: '6 hours',
 
         },
 
@@ -127,15 +127,14 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
           level: 51,
           class: 'Ninja',
           race: 'Elf',
-          location: "Bar",
-          idle: "false",
-          playingTime: "28 minutes"
+          location: 'Bar',
+          idle: 'false',
+          playingTime: '28 minutes',
 
         },
-      ]
+      ],
     };
   }
-
 
   render() {
     return (
@@ -143,48 +142,44 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
         data={this.state.players}
         columns={[
           {
-            Header: "Who's Playing",
+            Header: 'Who\'s Playing',
             columns: [
               {
-                Header: "Name",
-                accessor: "name"
+                Header: 'Name',
+                accessor: 'name',
               },
               {
-                Header: "Race",
-                accessor: "race"
+                Header: 'Race',
+                accessor: 'race',
               },
               {
-                Header: "Class",
-                accessor: "class"
+                Header: 'Class',
+                accessor: 'class',
               },
               {
-                Header: "Level",
-                accessor: "level"
+                Header: 'Level',
+                accessor: 'level',
               },
               {
-                Header: "Location",
-                accessor: "location"
+                Header: 'Location',
+                accessor: 'location',
               },
               {
-                Header: "Idle",
-                accessor: "idle"
+                Header: 'Idle',
+                accessor: 'idle',
               },
               {
-                Header: "Playing Time",
-                accessor: "playingTime"
+                Header: 'Playing Time',
+                accessor: 'playingTime',
               },
-            ]
+            ],
           },
-
-
         ]}
-        style={{
-          height: "400px"
-        }}
+        style={{ height: '400px'}}
         defaultPageSize={10}
         className="-striped -highlight"
       />
-    )
+    );
   }
 }
 

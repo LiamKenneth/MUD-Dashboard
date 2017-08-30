@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactTable from 'react-table'
+import ReactTable from 'react-table';
 import { Col, Row, Table } from 'reactstrap';
 
 interface IPlayer {
@@ -19,7 +19,7 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
     super(props);
 
     this.state = {
-        players: [
+      players: [
         {
           id: 1,
           name: 'malleus',
@@ -67,9 +67,9 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
           class: 'Mage',
           race: 'Human',
           lastplayed: '5 hours ago',
-    
+
         },
-    
+
         {
           id: 7,
           name: 'Shawn',
@@ -77,9 +77,9 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
           class: 'Skald',
           race: 'Human',
           lastplayed: '3 hours ago',
-    
+
         },
-    
+
         {
           id: 8,
           name: 'Waaagh',
@@ -87,9 +87,9 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
           class: 'Dragonslayer',
           race: 'Bugbear',
           lastplayed: '3 hours ago',
-    
+
         },
-    
+
         {
           id: 9,
           name: 'Alleluia',
@@ -97,9 +97,9 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
           class: 'Druid',
           race: 'Areial',
           lastplayed: '3 hours ago',
-    
+
         },
-    
+
         {
           id: 10,
           name: 'Treluver',
@@ -107,54 +107,52 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
           class: 'Ninja',
           race: 'Elf',
           lastplayed: '3 hours ago',
-    
+
         },
-      ]
+      ],
     };
   }
 
- 
   render() {
     return (
       <ReactTable
-      data={this.state.players}
-      columns={[
-        {
-          Header: "Players",
-          columns: [
-            {
-              Header: "Name",
-              accessor: "name"
-            },
-            {
-              Header: "Race",
-              accessor: "race"
-            },
-            {
-              Header: "Class",
-              accessor: "class"
-            },
-            {
-              Header: "Level",
-              accessor: "level"
-            },
-            {
-              Header: "Last Played",
-              accessor: "lastplayed"
-            },
-          ]
-        },
-        
-        
-      ]}
-      style={{
-            height: "400px" 
-          }}
-      defaultPageSize={10}
-      className="-striped -highlight"
-    /> 
-    )
+        data={this.state.players}
+        columns={[
+          {
+            Header: 'Players',
+            columns: [
+              {
+                Header: 'Name',
+                accessor: 'name',
+              },
+              {
+                Header: 'Race',
+                accessor: 'race',
+              },
+              {
+                Header: 'Class',
+                accessor: 'class',
+              },
+              {
+                Header: 'Level',
+                accessor: 'level',
+              },
+              {
+                Header: 'Last Played',
+                accessor: 'lastplayed',
+              },
+            ],
+          },
+
+        ]}
+        style={{
+          height: '400px',
+        }}
+        defaultPageSize={10}
+        className="-striped -highlight"
+      />
+    );
   }
 }
 
-export default  PlayerList;
+export default PlayerList;

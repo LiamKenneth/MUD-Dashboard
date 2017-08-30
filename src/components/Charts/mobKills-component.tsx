@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-
 class MobKills extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -65,7 +64,8 @@ class MobKills extends React.Component<any, any> {
         <ResponsiveContainer height="100%" width="100%">
         <LineChart
             data={this.state.kills}
-            margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+            margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        >
             <Line name="Mob Deaths" type="monotone" dataKey="Count" stroke="#F24D16" height={60} />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="Month" />
@@ -74,7 +74,7 @@ class MobKills extends React.Component<any, any> {
             <Legend verticalAlign="top" />
         </LineChart>
         </ResponsiveContainer>
-    )
+    );
   }
 }
 

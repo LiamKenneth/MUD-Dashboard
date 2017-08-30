@@ -6,7 +6,7 @@
       "comment-format": [true, "check-space"],
       "import-blacklist": [true, "rxjs"],
       "interface-over-type-literal": false,
-      "max-line-length": [true, 120],
+      "max-line-length": [true, 240],
       "member-access": false,
       "member-ordering": [true, {
         "order": "fields-first"
@@ -23,6 +23,9 @@
       "no-this-assignment": [true, {
         "allow-destructuring": true
       }],
+      "jsx-no-multiline-js": false,
+      "jsx-no-lambda": false,
+      "no-console": false,
       "no-unused-variable": [true, "react"],
       "object-literal-sort-keys": false,
       "object-literal-shorthand": false,

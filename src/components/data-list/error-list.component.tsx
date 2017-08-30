@@ -57,28 +57,30 @@ class ErrorList extends React.Component<IErrorListProps, any> {
       <ReactTable
         data={this.state.errors}
         columns={[{
-                  Header: "Errors",
+                  Header: 'Errors',
                   columns: [
                     {
-                      Header: "Name",
-                      accessor: "name"
+                      Header: 'Name',
+                      accessor: 'name',
                     },
                     {
-                      Header: "Type",
-                      accessor: "type"
+                      Header: 'Type',
+                      accessor: 'type',
                     },
                     {
-                      Header: "Count",
-                      accessor: "count"
+                      Header: 'Count',
+                      accessor: 'count',
                     },
-                  ]
+                  ],
                 },
               ]}
 
         style={{  height: '400px' }}
         defaultPageSize={10}
         className="-striped -highlight"
-  })}
+        getTrProps={(state: any, rowInfo: any, column: any, instance: any) => ({
+                  onClick: (e: any) => console.log(rowInfo.original.name),
+                })}
       />
     );
   }

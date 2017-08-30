@@ -7,7 +7,8 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "karma start",
-    "lint": "tslint -c tslint.json 'src/**/**/*.{ts,tsx}'"
+    "lint": "tslint -c tslint.json 'src/**/**/*.{ts,tsx}'",
+    "lintfix": "tslint --project \"tsconfig.json\" --fix"
   },
   "keywords": [
     "MUD"
