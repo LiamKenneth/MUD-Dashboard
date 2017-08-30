@@ -17,22 +17,13 @@ class Header extends React.Component<any, any> {
   }
   render() {
     return (
-      <div>
          <Navbar className="navbar-expand-sm" color="faded" light={true} toggleable={true}>
-         <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler right={true} onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar={true}>
-            <Nav className="ml-auto" navbar={true}>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+        <button type="button" className="sidebar-toggler navbar-toggler-left" onClick={this.props.handleClick}>
+          <span className="navbar-toggler-icon"/>
+        </button>
+         <NavbarBrand href="/">Dashboard</NavbarBrand>
+
         </Navbar>
-      </div>
     );
   }
 }

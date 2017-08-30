@@ -1,7 +1,72 @@
 @import "_variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/react-table/react-table.css";
+@import "../components/sidebar/sidebar.scss";
+@import "../components/header/header.scss";
+@import "../components/stats/stats.scss";
+@import "../components/data-list/data-list.scss";
 
 //https://colorlib.com/polygon/gentelella/index.html
-body {
-    background-color: $body;
+body, html {
+    background-color: $body; 
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+    }
+
+.container-fluid{
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
+.top-buffer { margin-top:30px; }
+ 
+.container-fluid {padding:0;}
+
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+
+.recharts-responsive-container {
+    min-height: 400px
+}
+
+
+.pie-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+  }
+
+  .wrapper {
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+    
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+  }
+
+  .main {
+    background: $body;
+   -ms-flex: 1;
+   -webkit-box-flex: 1;
+   -moz-box-flex: 1;
+   -ms-box-flex: 1;
+   box-flex: 1;  
+   padding:0 20px;
+  }

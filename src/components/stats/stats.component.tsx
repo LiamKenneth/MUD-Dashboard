@@ -5,6 +5,7 @@ interface IstatProps {
     message: string;
     stat: number | string;
     prevStat: number;
+    statClass: string,
 }
 
 class Stats extends React.Component<any, any> {
@@ -21,11 +22,14 @@ class Stats extends React.Component<any, any> {
     }
 
     public statHtml(stat: number | string, prevStat: number): any {
-         if (prevStat) {
-            return <span>{stat} {this.showStatDifference(stat as number, prevStat)} {prevStat}</span>;
-         }
+        if (prevStat) {
+            return (
+                <span className="stats-data">{stat}
+                    <sup>{this.showStatDifference(stat as number, prevStat)}</sup>
+                </span>);
+        }
 
-         return <span>{stat}</span>;
+        return <span className="stats-data">{stat}</span>;
     }
 
     public formatStat(stat: number | string, prevStat: number): string {
@@ -33,8 +37,13 @@ class Stats extends React.Component<any, any> {
     }
 
     public render(): any {
+
+        const classes = `stats ${this.props.statClass}`;
         return (
-         <Col>{this.props.message}{this.formatStat(this.props.stat, this.props.prevStat)}</Col>
+            <Col className={classes}>
+                {this.formatStat(this.props.stat, this.props.prevStat)}
+                <div>{this.props.message} </div>
+            </Col>
         );
     }
 }

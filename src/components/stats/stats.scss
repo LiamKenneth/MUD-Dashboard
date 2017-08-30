@@ -1,0 +1,42 @@
+.stats {
+    color: #fff;
+    padding: 1rem;
+    min-height: 7rem;
+    margin: 1rem;
+    text-align: center;
+
+    .stats-data {
+        font-size: 2rem;
+        position: relative;
+        margin-top: 0.5rem;
+        display: inline-block
+    }
+ 
+    div {
+        font-size: 0.9rem;  
+    }
+
+    &.newMonth {
+        background: #2C82C9;
+    }
+
+    &.newWeek {
+        background: #2CC990;
+    }
+
+    &.newToday {
+        background: #44BBFF;
+    }
+
+    &.averagePlayTime {
+        background: #8870FF;
+    }
+
+    &.longestPlayTime {
+        background: #F7BC05;
+    }
+
+    &.shortestPlayTime {
+        background: #D33257;
+    }
+}
