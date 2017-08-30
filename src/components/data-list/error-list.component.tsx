@@ -78,6 +78,7 @@ class ErrorList extends React.Component<IErrorListProps, any> {
         style={{  height: '400px' }}
         defaultPageSize={10}
         className="-striped -highlight"
+  })}
       />
     );
   }

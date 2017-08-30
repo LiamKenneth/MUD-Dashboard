@@ -7,10 +7,17 @@
 @import "../components/data-list/data-list.scss";
 
 //https://colorlib.com/polygon/gentelella/index.html
-body {
-    background-color: $body;
-    margin:0;
-}
+body, html {
+    background-color: $body; 
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0);
+    }
 
 .container-fluid{
     margin-top: 0;
@@ -43,3 +50,27 @@ body {
     background-color: #fff;
   }
 
+  .wrapper {
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+    
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+  }
+
+  .main {
+    background: $body;
+   -ms-flex: 1;
+   -webkit-box-flex: 1;
+   -moz-box-flex: 1;
+   -ms-box-flex: 1;
+   box-flex: 1;  
+   padding:0 20px;
+  }

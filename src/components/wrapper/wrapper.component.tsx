@@ -65,7 +65,10 @@ class Wrapper extends React.Component<any, any> {
 
         return (
             <div className="wrapper">
+         
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
+          
+                <div className="main">
                 <Header handleClick={this.handleClick} />
                 <Row>
 
@@ -140,6 +143,7 @@ class Wrapper extends React.Component<any, any> {
                     <PlayerList players={[]} />
                     </Col>
                 </Row>
+            </div>
             </div>
         );
     }
