@@ -1,3 +1,4 @@
+import { forEachComment } from 'tslint/lib';
 import * as React from 'react';
 import { Container, Row, Col, Card, CardBlock, CardHeader } from 'reactstrap';
 import Signups from './../Charts/signups-component';
@@ -31,24 +32,7 @@ class Wrapper extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            newPlayers: {
-                month: {
-                    now: 45,
-                    before: 30,
-                },
-                week: {
-                    now: 22,
-                    before: 15,
-                },
-                day: {
-                    now: 5,
-                    before: 12,
-                },
-            },
-            averagePlayTime: '45 minutes',
-            longestPlayTime: '2 hours',
-            shortestPlayTime: '1 minute',
+        this.state = { 
             sidebarOpen: false,
         };
         this.handleClick = this.handleClick.bind(this);
@@ -61,6 +45,24 @@ class Wrapper extends React.Component<any, any> {
         });
     }
 
+    
+  componentDidMount() {
+    
+       fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
+           .then(function (response) {
+               return response.json();
+           })
+           .then(function (json) {
+               console.log(json)
+               this.setState({...json });
+            
+           })
+           .catch(function (exception) {
+               console.log("Error fetching  data: " + exception.message);
+           });
+   };
+   
+
     public render(): any {
 
         return (
@@ -71,6 +73,8 @@ class Wrapper extends React.Component<any, any> {
                 <div className="main">
                 <Header handleClick={this.handleClick} />
                 <Row>
+
+                   
 
                     <Stats
                         message="Logins today:"

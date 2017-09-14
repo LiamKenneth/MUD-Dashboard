@@ -29,6 +29,22 @@ class Classes extends React.Component<any, any> {
 
   }
 
+//   componentDidMount() {
+ 
+//     fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (json) {
+//             console.log(json)
+//             this.setState({ ...json });
+//         })
+//         .catch(function (exception) {
+//             console.log("Error fetching  data: " + exception.message);
+//         });
+// };
+
+
   render() {
         const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
         return (
