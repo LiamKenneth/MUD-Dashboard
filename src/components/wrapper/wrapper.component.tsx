@@ -32,7 +32,8 @@ class Wrapper extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = { 
+        this.state = {
+            stats : [],
             sidebarOpen: false,
         };
         this.handleClick = this.handleClick.bind(this);
@@ -44,25 +45,21 @@ class Wrapper extends React.Component<any, any> {
 
         });
     }
+    componentDidMount() {
 
-    
-  componentDidMount() {
-    
-       fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
-           .then(function (response) {
-               return response.json();
-           })
-           .then(function (json) {
-               console.log(json)
-               this.setState({...json });
-            
-           })
-           .catch(function (exception) {
-               console.log("Error fetching  data: " + exception.message);
-           });
-   };
-   
+        fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                console.log(json);
+                this.setState({stats: [...json]});
 
+            })
+            .catch((exception) => {
+                console.log('Error fetching  data: ' + exception.message);
+            });
+    }
     public render(): any {
 
         return (
@@ -71,83 +68,89 @@ class Wrapper extends React.Component<any, any> {
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
 
                 <div className="main">
-                <Header handleClick={this.handleClick} />
-                <Row>
+                    <Header handleClick={this.handleClick} />
+                    <Row>
 
-                   
+{ this.state.stats.length > 1 ? (
+                          <Stats
+                            message="Logins today:"
+                            stat={this.state.stats[2].Now}
+                            prevStat={this.state.stats[2].Before}
+                            statClass="newWeek"
+                          />
+                        ) : 'Loading!'}
 
-                    <Stats
-                        message="Logins today:"
-                        stat={this.state.newPlayers.week.now}
-                        prevStat={this.state.newPlayers.week.before}
-                        statClass="newWeek"
-                    />
+                        { this.state.stats.length > 1 ? (
+                          <Stats
+                            message="new players today:"
+                            stat={this.state.stats[1].Now}
+                            prevStat={this.state.stats[1].Before}
+                            statClass="newToday"
+                          /> ) : 'Loading!'}
 
-                    <Stats
-                        message="new players today:"
-                        stat={this.state.newPlayers.day.now}
-                        prevStat={this.state.newPlayers.day.before}
-                        statClass="newToday"
-                    />
+                          { this.state.stats.length > 1 ? (
+                          <Stats
+                            message="average playTime:"
+                            stat={this.state.stats[3].Now}
+                            statClass="averagePlayTime"
+                          /> ) : 'Loading!'}
 
-                    <Stats
-                        message="average playTime:"
-                        stat={this.state.averagePlayTime}
-                        statClass="averagePlayTime"
-                    />
+                          { this.state.stats.length > 1 ? (
+                        <Stats
+                            message="longest PlayTime:"
+                            stat={this.state.stats[4].Now}
+                            statClass="longestPlayTime"
+                        /> ) : 'Loading!'}
 
-                    <Stats
-                        message="longest PlayTime:"
-                        stat={this.state.longestPlayTime}
-                        statClass="longestPlayTime"
-                    />
+                        { this.state.stats.length > 1 ? (
+                        <Stats
+                            message="Player Deaths:"
+                            stat={33}
+                            statClass="shortestPlayTime"
+                        />
+                  ) : 'Loading!'}
 
-                    <Stats
-                        message="Player Deaths:"
-                        stat={33}
-                        statClass="shortestPlayTime"
-                    />
-                </Row>
-                <Row className="top-buffer">
+                    </Row>
+                    <Row className="top-buffer">
 
-                    <Col sm="6">
+                        <Col sm="6">
 
-                       <Signups />
+                          {/* ///  <Signups /> */}
 
-                    </Col>
-                    <Col sm="3">
+                        </Col>
+                        <Col sm="3">
 
-                         <Classes />
+                            {/* <Classes /> */}
 
-                    </Col>
-                    <Col sm="3">
+                        </Col>
+                        <Col sm="3">
 
-                         <Gender />
+                            {/* <Gender /> */}
 
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="6">
-                        <MobKills />
-                    </Col>
-                    <Col sm="6" >
-                        <Race />
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="6">
-                    <WhoList players={[]} />
-                    </Col>
-                    <Col sm="6">
-                        <ErrorList errors={[]} />
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="12">
-                    <PlayerList players={[]} />
-                    </Col>
-                </Row>
-            </div>
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="6">
+                            {/* <MobKills /> */}
+                        </Col>
+                        <Col sm="6" >
+                            {/* <Race /> */}
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="6">
+                            <WhoList players={[]} />
+                        </Col>
+                        <Col sm="6">
+                            <ErrorList errors={[]} />
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="12">
+                            <PlayerList players={[]} />
+                        </Col>
+                    </Row>
+                </div>
             </div>
         );
     }
