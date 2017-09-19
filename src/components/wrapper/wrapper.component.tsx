@@ -115,12 +115,12 @@ class Wrapper extends React.Component<any, any> {
 
                         <Col sm="6">
 
-                          {/* ///  <Signups /> */}
+                        <Signups />
 
                         </Col>
                         <Col sm="3">
 
-                            {/* <Classes /> */}
+                           <Classes />
 
                         </Col>
                         <Col sm="3">
@@ -134,7 +134,7 @@ class Wrapper extends React.Component<any, any> {
                             {/* <MobKills /> */}
                         </Col>
                         <Col sm="6" >
-                            {/* <Race /> */}
+                             <Race /> 
                         </Col>
                     </Row>
                     <Row className="top-buffer">

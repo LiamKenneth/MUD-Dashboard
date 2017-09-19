@@ -6,49 +6,30 @@ class Classes extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      classes:  [
-            {
-                name: 'Warrior',
-                value: 9,
-            },
-            {
-                name: 'Mage',
-                value: 11,
-            },
-            {
-                name: 'Thief',
-                value: 4,
-            },
-            {
-                name: 'Cleric',
-                value: 8,
-            },
-
-        ],
+      classes:  [],
     };
 
   }
 
-//   componentDidMount() {
- 
-//     fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (json) {
-//             console.log(json)
-//             this.setState({ ...json });
-//         })
-//         .catch(function (exception) {
-//             console.log("Error fetching  data: " + exception.message);
-//         });
-// };
+  componentDidMount() {
+    fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log(json);
+            this.setState({classes: [...json]});
+        })
+        .catch((exception) => {
+            console.log('Error fetching  data: ' + exception.message);
+        });
+}
 
 
   render() {
         const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-        return (
-
+        
+        return  (
         <ResponsiveContainer>
         <PieChart>
         <Legend verticalAlign="top" />
@@ -57,7 +38,7 @@ class Classes extends React.Component<any, any> {
           </Pie>
         </PieChart>
        </ResponsiveContainer>
-      );
+        );
     }
   }
 

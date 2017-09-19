@@ -6,31 +6,24 @@ class Race extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      race: [
-        {
-          name: 'Human',
-          value: 25,
-        },
-        {
-          name: 'Elf',
-          value: 65,
-        },
-        {
-          name: 'Dwarf',
-          value: 32,
-        },
-        {
-          name: 'Halfling',
-          value: 15,
-        },
-        {
-          name: 'Dark Elf',
-          value: 75,
-        },
-      ],
+      race: [],
     };
 
   }
+
+  componentDidMount() {
+    fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log(json);
+            this.setState({race: [...json]});
+        })
+        .catch((exception) => {
+            console.log('Error fetching  data: ' + exception.message);
+        });
+}
 
   render() {
     const COLORS = ['#FF7416', '#CD6B97', '#71BA51', '#60646D', '#1ABC9C'];
@@ -38,7 +31,7 @@ class Race extends React.Component<any, any> {
       <ResponsiveContainer>
         <PieChart>
           <Legend verticalAlign="top" />
-          <Pie data={this.state.race} fill="#8884d8" label={true}>
+          <Pie data={this.state.race} fill="#8884d8" label={true} dataKey="value">
             {this.state.race.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
         </PieChart>
