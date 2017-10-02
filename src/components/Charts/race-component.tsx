@@ -11,32 +11,45 @@ class Race extends React.Component<any, any> {
 
   }
 
-//   componentDidMount() {
-//     fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
-//         .then((response) => {
-//             return response.json();
-//         })
-//         .then((json) => {
-//             console.log(json);
-//             this.setState({race: [...json]});
-//         })
-//         .catch((exception) => {
-//             console.log('Error fetching  data: ' + exception.message);
-//         });
-// }
+
+  componentDidMount() {
+    fetch(`http://localhost:53729/api/GameStats/GetRaceBreakdown`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+ 
+        var data = JSON.parse(json);
+        data[0].value = 1;
+        data[1].value = 1;
+        data[2].value = 1;
+        data[3].value = 1;
+        const self = this
+
+        setTimeout(function(){
+          self.setState({ race: data });
+        }, 2000);
+ 
+      })
+      .catch((exception) => {
+        console.log('Error fetching  data: ' + exception.message);
+      });
+  }
 
   render() {
     const COLORS = ['#FF7416', '#CD6B97', '#71BA51', '#60646D', '#1ABC9C'];
-    return (
-      <ResponsiveContainer>
-        <PieChart>
-          <Legend verticalAlign="top" />
-          <Pie data={this.state.race} fill="#8884d8" label={true} dataKey="value">
-            {this.state.race.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
-    );
+    return this.state.race.length > 1 ? (
+      <div>
+            <ResponsiveContainer>
+              <PieChart>
+                <Legend verticalAlign="top" />
+  
+                <Pie data={this.state.race} fill="#8884d8" label={true} >
+                  {this.state.race.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+      </div>)  : <div>Loading</div>;
   }
 }
 
