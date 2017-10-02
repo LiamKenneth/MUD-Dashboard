@@ -11,19 +11,19 @@ class Race extends React.Component<any, any> {
 
   }
 
-  componentDidMount() {
-    fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            console.log(json);
-            this.setState({race: [...json]});
-        })
-        .catch((exception) => {
-            console.log('Error fetching  data: ' + exception.message);
-        });
-}
+//   componentDidMount() {
+//     fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
+//         .then((response) => {
+//             return response.json();
+//         })
+//         .then((json) => {
+//             console.log(json);
+//             this.setState({race: [...json]});
+//         })
+//         .catch((exception) => {
+//             console.log('Error fetching  data: ' + exception.message);
+//         });
+// }
 
   render() {
     const COLORS = ['#FF7416', '#CD6B97', '#71BA51', '#60646D', '#1ABC9C'];

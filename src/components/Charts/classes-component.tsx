@@ -12,13 +12,23 @@ class Classes extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    fetch(`http://www.archaicquest.com/staging/api/GameStats/GetClassBreakdown`)
+    fetch(`http://localhost:53729/api/GameStats/GetClassBreakdown`)
       .then((response) => {
         return response.json();
       })
       .then((json) => {
-        console.log(json);
-        this.setState({ classes: json });
+ 
+        var data = JSON.parse(json);
+        data[0].value = 1;
+        data[1].value = 1;
+        data[2].value = 1;
+        data[3].value = 1;
+        const self = this
+
+        setTimeout(function(){
+          self.setState({ classes: data });
+        }, 2000);
+ 
       })
       .catch((exception) => {
         console.log('Error fetching  data: ' + exception.message);
@@ -27,21 +37,19 @@ class Classes extends React.Component<any, any> {
 
   render() {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-    return this.state.classes.length > 1 ?
-    (
+ 
+    return this.state.classes.length > 1 ? (
     <div>
-          <ResponsiveContainer height="100%" width="100%">
+          <ResponsiveContainer>
             <PieChart>
               <Legend verticalAlign="top" />
-              <Pie data={this.state.classes} fill="#8884d8" label={true} dataKey="Name">
+
+              <Pie data={this.state.classes} fill="#8884d8" label={true} >
                 {this.state.classes.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-    </div>) : (
-      <div>Loading...</div>
-    );
+    </div>)  : <div>Loading</div>
   }
 }
 
