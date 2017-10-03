@@ -20,8 +20,7 @@ class Gender extends React.Component<any, any> {
       .then((json) => {
  
         var data = JSON.parse(json);
-        data[0].value = 1;
-        data[1].value = 1;
+ 
         const self = this
 
         setTimeout(function(){

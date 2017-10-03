@@ -24,7 +24,7 @@ interface IstatProps {
         day: Icount,
         averagePlayTime: string,
         longestPlayTime: string,
-        shortestPlayTime: string,
+        playerDeaths: string,
     };
 }
 

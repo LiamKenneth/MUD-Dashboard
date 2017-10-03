@@ -162,6 +162,10 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
                 Header: 'Last Played',
                 accessor: 'lastPlayed',
               },
+              {
+                Header: 'Total Play Time',
+                accessor: 'totalHoursPlayed',
+              },
             ],
           },
 
