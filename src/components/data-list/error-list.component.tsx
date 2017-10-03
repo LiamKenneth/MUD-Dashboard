@@ -23,33 +23,32 @@ class ErrorList extends React.Component<IErrorListProps, any> {
 
     this.state = {
       errors: [
-        {
-          name: 'loot',
-          type: 'wrong command',
-          count: 20,
-        },
-        {
-          name: 'map',
-          type: 'wrong command',
-          count: 17,
-        },
-        {
-          name: 'yes',
-          type: 'wrong command',
-          count: 12,
-        },
-        {
-          name: 'go away village idiot',
-          type: 'wrong command',
-          count: 5,
-        },
-        {
-          name: 'grab',
-          type: 'wrong command',
-          count: 2,
-        },
+        
       ],
     };
+  }
+
+  
+
+    componentDidMount() {
+    fetch(`http://localhost:53729/api/GameStats/GetErrors`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+ 
+        var data = JSON.parse(json);
+     
+        const self = this
+
+ 
+          self.setState({ errors: data });
+      
+ 
+      })
+      .catch((exception) => {
+        console.log('Error fetching  data: ' + exception.message);
+      });
   }
 
   render() {

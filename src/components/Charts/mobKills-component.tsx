@@ -6,58 +6,24 @@ class MobKills extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      kills:  [
-            {
-                Month: 'Sep 2016',
-                Count: 1876,
-            },
-            {
-                Month: 'Oct 2016',
-                Count: 2324,
-            },
-            {
-                Month: 'Nov 2016',
-                Count: 4480,
-            },
-            {
-                Month: 'Dec 2016',
-                Count: 5600,
-            },
-            {
-                Month: 'Jan 2017',
-                Count: 6789,
-            },
-            {
-                Month: 'Feb 2017',
-                Count: 9000,
-            },
-            {
-                Month: 'Mar 2017',
-                Count: 9912,
-            },
-            {
-                Month: 'Apr 2017',
-                Count: 9968,
-            },
-            {
-                Month: 'May 2017',
-                Count: 9996,
-            },
-            {
-                Month: 'Jun 2017',
-                Count: 12012,
-            },
-            {
-                Month: 'Jul 2017',
-                Count: 13692,
-            },
-            {
-                Month: 'Aug 2017',
-                Count: 15904,
-            },
-        ],
+      kills:  [ ],
     };
   }
+
+  
+  componentDidMount() {
+    fetch(`http://localhost:53729/api/GameStats/MobKillCount?monthCount=3`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log(json);
+            this.setState({kills: [...json]});
+        })
+        .catch((exception) => {
+            console.log('Error fetching  data: ' + exception.message);
+        });
+}
 
   render() {
     return (

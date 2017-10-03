@@ -47,7 +47,7 @@ class Wrapper extends React.Component<any, any> {
     }
     componentDidMount() {
 
-        fetch(`http://www.archaicquest.com/staging/api/GameStats/NewPlayers`)
+        fetch(`http://localhost:53729/api/GameStats/NewPlayers`)
             .then((response) => {
                 return response.json();
             })
@@ -125,13 +125,13 @@ class Wrapper extends React.Component<any, any> {
                         </Col>
                         <Col sm="3">
 
-                            {/* <Gender /> */}
+                        <Gender />
 
                         </Col>
                     </Row>
                     <Row className="top-buffer">
                         <Col sm="6">
-                            {/* <MobKills /> */}
+                            <MobKills /> 
                         </Col>
                         <Col sm="6" >
                              <Race /> 
