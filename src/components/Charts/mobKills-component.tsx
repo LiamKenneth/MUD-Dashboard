@@ -12,7 +12,7 @@ class MobKills extends React.Component<any, any> {
 
   
   componentDidMount() {
-    fetch(`http://localhost:53729/api/GameStats/MobKillCount?monthCount=3`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/MobKillCount?monthCount=3`)
         .then((response) => {
             return response.json();
         })

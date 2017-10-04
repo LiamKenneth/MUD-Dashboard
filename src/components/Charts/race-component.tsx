@@ -13,7 +13,7 @@ class Race extends React.Component<any, any> {
 
 
   componentDidMount() {
-    fetch(`http://localhost:53729/api/GameStats/GetRaceBreakdown`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetRaceBreakdown`)
       .then((response) => {
         return response.json();
       })

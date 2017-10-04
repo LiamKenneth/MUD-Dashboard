@@ -27,7 +27,7 @@ class WhoList extends React.Component<IPlayerWhoistProps, any> {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:53729/api/GameStats/GetWhoList`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetWhoList`)
       .then((response) => {
         return response.json();
       })

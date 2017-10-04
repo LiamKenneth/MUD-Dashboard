@@ -114,7 +114,7 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:53729/api/GameStats/GetAllPlayers`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetAllPlayers`)
       .then((response) => {
         return response.json();
       })
@@ -153,6 +153,10 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
               {
                 Header: 'Class',
                 accessor: 'class',
+              },
+              {
+                Header: 'Gender',
+                accessor: 'gender',
               },
               {
                 Header: 'Level',

@@ -2,27 +2,22 @@ import * as React from 'react';
 import ReactTable from 'react-table';
 import { Col, Row, Table } from 'reactstrap';
 
-interface IError {
+interface IQuit{
   name: string,
-  level: number,
-  race: string,
-  class: string,
-  lastplayed: string,
-  location: string,
-  idle: string,
-  playingTime: string,
+  roomName: string,
+  roomId: number,
 }
 
-interface IErrorListProps {
-  errors: IError[]
+interface IQuitListProps {
+  quit: IQuit[]
 }
 
-class ErrorList extends React.Component<IErrorListProps, any> {
+class QuitList extends React.Component<IQuitListProps, any> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      errors: [
+      quit: [
         
       ],
     };
@@ -31,7 +26,7 @@ class ErrorList extends React.Component<IErrorListProps, any> {
   
 
     componentDidMount() {
-    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetErrors`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/ReturnQuitLocation`)
       .then((response) => {
         return response.json();
       })
@@ -42,7 +37,7 @@ class ErrorList extends React.Component<IErrorListProps, any> {
         const self = this
 
  
-          self.setState({ errors: data });
+          self.setState({ quit: data });
       
  
       })
@@ -54,22 +49,22 @@ class ErrorList extends React.Component<IErrorListProps, any> {
   render() {
     return (
       <ReactTable
-        data={this.state.errors}
+        data={this.state.quit}
         columns={[{
-                  Header: 'Errors',
+                  Header: 'Quit Location',
                   columns: [
                     {
                       Header: 'Name',
                       accessor: 'name',
                     },
                     {
-                      Header: 'Type',
-                      accessor: 'type',
+                      Header: 'Location',
+                      accessor: 'roomName',
                     },
                     {
-                      Header: 'Count',
-                      accessor: 'count',
-                    },
+                      Header: 'Location Id',
+                      accessor: 'roomId',
+                    }
                   ],
                 },
               ]}
@@ -85,4 +80,4 @@ class ErrorList extends React.Component<IErrorListProps, any> {
   }
 }
 
-export default ErrorList;
+export default QuitList;

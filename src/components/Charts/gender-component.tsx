@@ -13,7 +13,7 @@ class Gender extends React.Component<any, any> {
 
   
   componentDidMount() {
-    fetch(`http://localhost:53729/api/GameStats/GetGenderBreakdown`)
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetGenderBreakdown`)
       .then((response) => {
         return response.json();
       })

@@ -10,6 +10,7 @@ import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
 import PlayerList from './../data-list/player-list.component';
+import QuitList from './../data-list/quit-list.component';
 import WhoList from './../data-list/who-list.component';
 import ErrorList from './../data-list/error-list.component';
 interface Icount {
@@ -47,7 +48,7 @@ class Wrapper extends React.Component<any, any> {
     }
     componentDidMount() {
 
-        fetch(`http://localhost:53729/api/GameStats/NewPlayers`)
+        fetch(`http://www.archaicquest.com/dev/api/GameStats/NewPlayers`)
             .then((response) => {
                 return response.json();
             })
@@ -90,14 +91,14 @@ class Wrapper extends React.Component<any, any> {
 
                           { this.state.stats.length > 1 ? (
                           <Stats
-                            message="average playTime:"
+                            message="minutes played average:"
                             stat={this.state.stats[3].Now}
                             statClass="averagePlayTime"
                           /> ) : 'Loading!'}
 
                           { this.state.stats.length > 1 ? (
                         <Stats
-                            message="longest PlayTime:"
+                            message="longest minutes played:"
                             stat={this.state.stats[4].Now}
                             statClass="longestPlayTime"
                         /> ) : 'Loading!'}
@@ -105,7 +106,7 @@ class Wrapper extends React.Component<any, any> {
                         { this.state.stats.length > 1 ? (
                         <Stats
                             message="Player Deaths:"
-                            stat={33}
+                            stat={this.state.stats[5].Now}
                             statClass="shortestPlayTime"
                         />
                   ) : 'Loading!'}
@@ -146,8 +147,11 @@ class Wrapper extends React.Component<any, any> {
                         </Col>
                     </Row>
                     <Row className="top-buffer">
-                        <Col sm="12">
+                        <Col sm="6">
                             <PlayerList players={[]} />
+                        </Col>
+                        <Col sm="6">
+                            <QuitList quit={[]} />
                         </Col>
                     </Row>
                 </div>

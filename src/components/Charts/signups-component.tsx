@@ -11,7 +11,7 @@ class Signups extends React.Component<any, any> {
   }
 
   componentDidMount() {
-            fetch(`http://www.archaicquest.com/staging/api/GameStats/SignUpCount?monthCount=3`)
+            fetch(`http://www.archaicquest.com/dev/api/GameStats/SignUpCount?monthCount=3`)
                 .then((response) => {
                     return response.json();
                 })
