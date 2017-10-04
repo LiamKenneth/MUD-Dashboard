@@ -20,97 +20,118 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
 
     this.state = {
       players: [
-        {
-          id: 1,
-          name: 'malleus',
-          level: 1,
-          class: 'mage',
-          race: 'Human',
-          lastplayed: '2 hours ago',
-        },
-        {
-          id: 2,
-          name: 'Gandalf',
-          level: 25,
-          class: 'mage',
-          race: 'Human',
-          lastplayed: '1 week ago',
-        },
-        {
-          id: 3,
-          name: 'Vorn',
-          level: 51,
-          class: 'cleric',
-          race: 'Human',
-          lastplayed: '4 weeks ago',
-        },
-        {
-          id: 4,
-          name: 'Graxx',
-          level: 51,
-          race: 'Human',
-          class: 'Warrior',
-          lastplayed: '1 day ago',
-        },
-        {
-          id: 5,
-          name: 'Laiton',
-          level: 51,
-          class: 'Mage',
-          race: 'Elf',
-          lastplayed: '2 days ago',
-        },
-        {
-          id: 6,
-          name: 'Lunez',
-          level: 51,
-          class: 'Mage',
-          race: 'Human',
-          lastplayed: '5 hours ago',
+        // {
+        //   id: 1,
+        //   name: 'malleus',
+        //   level: 1,
+        //   class: 'mage',
+        //   race: 'Human',
+        //   lastplayed: '2 hours ago',
+        // },
+        // {
+        //   id: 2,
+        //   name: 'Gandalf',
+        //   level: 25,
+        //   class: 'mage',
+        //   race: 'Human',
+        //   lastplayed: '1 week ago',
+        // },
+        // {
+        //   id: 3,
+        //   name: 'Vorn',
+        //   level: 51,
+        //   class: 'cleric',
+        //   race: 'Human',
+        //   lastplayed: '4 weeks ago',
+        // },
+        // {
+        //   id: 4,
+        //   name: 'Graxx',
+        //   level: 51,
+        //   race: 'Human',
+        //   class: 'Warrior',
+        //   lastplayed: '1 day ago',
+        // },
+        // {
+        //   id: 5,
+        //   name: 'Laiton',
+        //   level: 51,
+        //   class: 'Mage',
+        //   race: 'Elf',
+        //   lastplayed: '2 days ago',
+        // },
+        // {
+        //   id: 6,
+        //   name: 'Lunez',
+        //   level: 51,
+        //   class: 'Mage',
+        //   race: 'Human',
+        //   lastplayed: '5 hours ago',
 
-        },
+        // },
 
-        {
-          id: 7,
-          name: 'Shawn',
-          level: 51,
-          class: 'Skald',
-          race: 'Human',
-          lastplayed: '3 hours ago',
+        // {
+        //   id: 7,
+        //   name: 'Shawn',
+        //   level: 51,
+        //   class: 'Skald',
+        //   race: 'Human',
+        //   lastplayed: '3 hours ago',
 
-        },
+        // },
 
-        {
-          id: 8,
-          name: 'Waaagh',
-          level: 51,
-          class: 'Dragonslayer',
-          race: 'Bugbear',
-          lastplayed: '3 hours ago',
+        // {
+        //   id: 8,
+        //   name: 'Waaagh',
+        //   level: 51,
+        //   class: 'Dragonslayer',
+        //   race: 'Bugbear',
+        //   lastplayed: '3 hours ago',
 
-        },
+        // },
 
-        {
-          id: 9,
-          name: 'Alleluia',
-          level: 51,
-          class: 'Druid',
-          race: 'Areial',
-          lastplayed: '3 hours ago',
+        // {
+        //   id: 9,
+        //   name: 'Alleluia',
+        //   level: 51,
+        //   class: 'Druid',
+        //   race: 'Areial',
+        //   lastplayed: '3 hours ago',
 
-        },
+        // },
 
-        {
-          id: 10,
-          name: 'Treluver',
-          level: 51,
-          class: 'Ninja',
-          race: 'Elf',
-          lastplayed: '3 hours ago',
+        // {
+        //   id: 10,
+        //   name: 'Treluver',
+        //   level: 51,
+        //   class: 'Ninja',
+        //   race: 'Elf',
+        //   lastplayed: '3 hours ago',
 
-        },
+        // },
       ],
     };
+  }
+
+  componentDidMount() {
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetAllPlayers`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+ 
+        var data = JSON.parse(json);
+       
+        const self = this
+
+        setTimeout(function(){
+          self.setState({ players: data });
+        }, 2000);
+ 
+      })
+      .catch((exception) => {
+        console.log('Error fetching  data: ' + exception.message);
+      });
   }
 
   render() {
@@ -134,12 +155,20 @@ class PlayerList extends React.Component<IPlayerListProps, any> {
                 accessor: 'class',
               },
               {
+                Header: 'Gender',
+                accessor: 'gender',
+              },
+              {
                 Header: 'Level',
                 accessor: 'level',
               },
               {
                 Header: 'Last Played',
-                accessor: 'lastplayed',
+                accessor: 'lastPlayed',
+              },
+              {
+                Header: 'Total Play Time',
+                accessor: 'totalHoursPlayed',
               },
             ],
           },

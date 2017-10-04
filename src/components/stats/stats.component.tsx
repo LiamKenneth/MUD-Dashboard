@@ -9,6 +9,7 @@ interface IstatProps {
 }
 
 class Stats extends React.Component<any, any> {
+    
 
     public showStatDifference(stat: number, prevStat: number): string {
 

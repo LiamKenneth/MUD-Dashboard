@@ -6,44 +6,47 @@ class Race extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      race: [
-        {
-          name: 'Human',
-          value: 25,
-        },
-        {
-          name: 'Elf',
-          value: 65,
-        },
-        {
-          name: 'Dwarf',
-          value: 32,
-        },
-        {
-          name: 'Halfling',
-          value: 15,
-        },
-        {
-          name: 'Dark Elf',
-          value: 75,
-        },
-      ],
+      race: [],
     };
 
   }
 
+
+  componentDidMount() {
+    fetch(`http://www.archaicquest.com/dev/api/GameStats/GetRaceBreakdown`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+ 
+        var data = JSON.parse(json);
+ 
+        const self = this
+
+        setTimeout(function(){
+          self.setState({ race: data });
+        }, 2000);
+ 
+      })
+      .catch((exception) => {
+        console.log('Error fetching  data: ' + exception.message);
+      });
+  }
+
   render() {
     const COLORS = ['#FF7416', '#CD6B97', '#71BA51', '#60646D', '#1ABC9C'];
-    return (
-      <ResponsiveContainer>
-        <PieChart>
-          <Legend verticalAlign="top" />
-          <Pie data={this.state.race} fill="#8884d8" label={true}>
-            {this.state.race.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
-    );
+    return this.state.race.length > 1 ? (
+      <div>
+            <ResponsiveContainer>
+              <PieChart>
+                <Legend verticalAlign="top" />
+  
+                <Pie data={this.state.race} fill="#8884d8" label={true} >
+                  {this.state.race.map((entry: any, index: any) => <Cell key={index} fill={COLORS[index % COLORS.length]} />)}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+      </div>)  : <div>Loading</div>;
   }
 }
 

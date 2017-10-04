@@ -1,3 +1,4 @@
+import { forEachComment } from 'tslint/lib';
 import * as React from 'react';
 import { Container, Row, Col, Card, CardBlock, CardHeader } from 'reactstrap';
 import Signups from './../Charts/signups-component';
@@ -9,6 +10,7 @@ import Stats from './../stats/stats.component';
 import Header from './../header/header.component';
 import Sidebar from './../sidebar/sidebar.component';
 import PlayerList from './../data-list/player-list.component';
+import QuitList from './../data-list/quit-list.component';
 import WhoList from './../data-list/who-list.component';
 import ErrorList from './../data-list/error-list.component';
 interface Icount {
@@ -23,7 +25,7 @@ interface IstatProps {
         day: Icount,
         averagePlayTime: string,
         longestPlayTime: string,
-        shortestPlayTime: string,
+        playerDeaths: string,
     };
 }
 
@@ -32,23 +34,7 @@ class Wrapper extends React.Component<any, any> {
         super(props);
 
         this.state = {
-            newPlayers: {
-                month: {
-                    now: 45,
-                    before: 30,
-                },
-                week: {
-                    now: 22,
-                    before: 15,
-                },
-                day: {
-                    now: 5,
-                    before: 12,
-                },
-            },
-            averagePlayTime: '45 minutes',
-            longestPlayTime: '2 hours',
-            shortestPlayTime: '1 minute',
+            stats : [],
             sidebarOpen: false,
         };
         this.handleClick = this.handleClick.bind(this);
@@ -60,7 +46,21 @@ class Wrapper extends React.Component<any, any> {
 
         });
     }
+    componentDidMount() {
 
+        fetch(`http://www.archaicquest.com/dev/api/GameStats/NewPlayers`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                console.log(json);
+                this.setState({stats: [...json]});
+
+            })
+            .catch((exception) => {
+                console.log('Error fetching  data: ' + exception.message);
+            });
+    }
     public render(): any {
 
         return (
@@ -69,81 +69,92 @@ class Wrapper extends React.Component<any, any> {
                 <Sidebar sidebarOpen={this.state.sidebarOpen} />
 
                 <div className="main">
-                <Header handleClick={this.handleClick} />
-                <Row>
+                    <Header handleClick={this.handleClick} />
+                    <Row>
 
-                    <Stats
-                        message="Logins today:"
-                        stat={this.state.newPlayers.week.now}
-                        prevStat={this.state.newPlayers.week.before}
-                        statClass="newWeek"
-                    />
+{ this.state.stats.length > 1 ? (
+                          <Stats
+                            message="Logins today:"
+                            stat={this.state.stats[2].Now}
+                            prevStat={this.state.stats[2].Before}
+                            statClass="newWeek"
+                          />
+                        ) : 'Loading!'}
 
-                    <Stats
-                        message="new players today:"
-                        stat={this.state.newPlayers.day.now}
-                        prevStat={this.state.newPlayers.day.before}
-                        statClass="newToday"
-                    />
+                        { this.state.stats.length > 1 ? (
+                          <Stats
+                            message="new players today:"
+                            stat={this.state.stats[1].Now}
+                            prevStat={this.state.stats[1].Before}
+                            statClass="newToday"
+                          /> ) : 'Loading!'}
 
-                    <Stats
-                        message="average playTime:"
-                        stat={this.state.averagePlayTime}
-                        statClass="averagePlayTime"
-                    />
+                          { this.state.stats.length > 1 ? (
+                          <Stats
+                            message="minutes played average:"
+                            stat={this.state.stats[3].Now}
+                            statClass="averagePlayTime"
+                          /> ) : 'Loading!'}
 
-                    <Stats
-                        message="longest PlayTime:"
-                        stat={this.state.longestPlayTime}
-                        statClass="longestPlayTime"
-                    />
+                          { this.state.stats.length > 1 ? (
+                        <Stats
+                            message="longest minutes played:"
+                            stat={this.state.stats[4].Now}
+                            statClass="longestPlayTime"
+                        /> ) : 'Loading!'}
 
-                    <Stats
-                        message="Player Deaths:"
-                        stat={33}
-                        statClass="shortestPlayTime"
-                    />
-                </Row>
-                <Row className="top-buffer">
+                        { this.state.stats.length > 1 ? (
+                        <Stats
+                            message="Player Deaths:"
+                            stat={this.state.stats[5].Now}
+                            statClass="shortestPlayTime"
+                        />
+                  ) : 'Loading!'}
 
-                    <Col sm="6">
+                    </Row>
+                    <Row className="top-buffer">
 
-                       <Signups />
+                        <Col sm="6">
 
-                    </Col>
-                    <Col sm="3">
+                        <Signups />
 
-                         <Classes />
+                        </Col>
+                        <Col sm="3">
 
-                    </Col>
-                    <Col sm="3">
+                           <Classes />
 
-                         <Gender />
+                        </Col>
+                        <Col sm="3">
 
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="6">
-                        <MobKills />
-                    </Col>
-                    <Col sm="6" >
-                        <Race />
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="6">
-                    <WhoList players={[]} />
-                    </Col>
-                    <Col sm="6">
-                        <ErrorList errors={[]} />
-                    </Col>
-                </Row>
-                <Row className="top-buffer">
-                    <Col sm="12">
-                    <PlayerList players={[]} />
-                    </Col>
-                </Row>
-            </div>
+                        <Gender />
+
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="6">
+                            <MobKills /> 
+                        </Col>
+                        <Col sm="6" >
+                             <Race /> 
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="6">
+                            <WhoList players={[]} />
+                        </Col>
+                        <Col sm="6">
+                            <ErrorList errors={[]} />
+                        </Col>
+                    </Row>
+                    <Row className="top-buffer">
+                        <Col sm="6">
+                            <PlayerList players={[]} />
+                        </Col>
+                        <Col sm="6">
+                            <QuitList quit={[]} />
+                        </Col>
+                    </Row>
+                </div>
             </div>
         );
     }

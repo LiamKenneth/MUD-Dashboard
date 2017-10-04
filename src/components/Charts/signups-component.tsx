@@ -6,58 +6,23 @@ class Signups extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      signups:  [
-            {
-                Month: 'Sep 2016',
-                Count: 0,
-            },
-            {
-                Month: 'Oct 2016',
-                Count: 0,
-            },
-            {
-                Month: 'Nov 2016',
-                Count: 0,
-            },
-            {
-                Month: 'Dec 2016',
-                Count: 0,
-            },
-            {
-                Month: 'Jan 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Feb 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Mar 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Apr 2017',
-                Count: 0,
-            },
-            {
-                Month: 'May 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Jun 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Jul 2017',
-                Count: 0,
-            },
-            {
-                Month: 'Aug 2017',
-                Count: 9,
-            },
-        ],
+      signups:  [],
     };
   }
+
+  componentDidMount() {
+            fetch(`http://www.archaicquest.com/dev/api/GameStats/SignUpCount?monthCount=3`)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((json) => {
+                    console.log(json);
+                    this.setState({signups: [...json]});
+                })
+                .catch((exception) => {
+                    console.log('Error fetching  data: ' + exception.message);
+                });
+        }
 
   render() {
     return (
